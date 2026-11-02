@@ -1,0 +1,40 @@
+:root {
+    --sky: #bfeaff;
+    --grass: #d9f4c6;
+    --cream: #fff8e6;
+    --ink: #3b2a1a;
+    --ink-soft: #6b5640;
+    --wood: #6b4423;
+    --wood-dark: #4a2e16;
+    --green: #237a35;
+    --green-light: #2f9e44;
+    --gold: #ffc94d;
+    font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+    background: linear-gradient(180deg, var(--sky) 0%, var(--grass) 100%);
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+button {
+    font-family: inherit;
+}

@@ -1,0 +1,305 @@
+/* GamePulse: a bright, playful look for a game, with big touch-friendly buttons. */
+
+.app {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px 16px 40px;
+}
+
+/* ---------- Title bar ---------- */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 4px 16px;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--green);
+    color: #fff;
+    font-weight: 800;
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--wood);
+    box-shadow: 0 4px 0 var(--wood-dark);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--wood-dark);
+    line-height: 1.1;
+}
+
+.tagline {
+    color: var(--ink-soft);
+    font-size: 15px;
+}
+
+.rotate-hint {
+    display: none;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: var(--cream);
+    border: 2px solid var(--gold);
+    font-size: 14px;
+}
+
+/* ---------- The game ---------- */
+.game {
+    background: var(--cream);
+    border: 4px solid var(--wood);
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 6px 0 var(--wood-dark);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hud {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.hud-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 110px;
+    padding: 6px 14px;
+    border-radius: 14px;
+    background: #fff;
+    border: 2px solid var(--gold);
+}
+
+.hud-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+}
+
+.hud-value {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.restart {
+    margin-left: auto;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 14px;
+    border: 3px solid var(--wood);
+    background: #fff;
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .restart:hover {
+        background: var(--grass);
+    }
+
+    .restart:focus-visible,
+    .seed:focus-visible,
+    .play-again:focus-visible {
+        outline: 4px solid var(--green-light);
+        outline-offset: 2px;
+    }
+
+.board {
+    position: relative;
+}
+
+.lawn {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 5;
+    border: 5px solid var(--wood);
+    border-radius: 16px;
+    background: #3a8a4c;
+    cursor: pointer;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(35, 22, 10, 0.82);
+    color: #fff;
+}
+
+    .overlay h2 {
+        font-size: 30px;
+        color: var(--gold);
+    }
+
+.play-again {
+    min-height: 52px;
+    padding: 0 28px;
+    border-radius: 16px;
+    border: 3px solid var(--wood-dark);
+    background: var(--green);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+    .play-again:hover {
+        background: #1b6b2d;
+    }
+
+/* ---------- Seed cards ---------- */
+.seeds {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.seed {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        'emoji name'
+        'emoji cost'
+        'note note';
+    column-gap: 12px;
+    align-items: center;
+    min-height: 88px;
+    padding: 10px 14px;
+    text-align: left;
+    border-radius: 16px;
+    border: 3px solid #d9c9a6;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+    .seed.selected {
+        border-color: var(--green-light);
+        background: #effbe8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 0 var(--green);
+    }
+
+    .seed.unavailable {
+        opacity: 0.65;
+    }
+
+.seed-emoji {
+    grid-area: emoji;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.seed-name {
+    grid-area: name;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.seed-cost {
+    grid-area: cost;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--green);
+}
+
+.seed-note {
+    grid-area: note;
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+.seed-recharge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 7px;
+    background: var(--gold);
+}
+
+.message {
+    min-height: 24px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700;
+    color: #a3341c;
+}
+
+/* ---------- How to play ---------- */
+.how-to {
+    margin-top: 22px;
+    padding: 16px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px dashed var(--wood);
+}
+
+    .how-to h2 {
+        font-size: 18px;
+        margin-bottom: 6px;
+        color: var(--wood-dark);
+    }
+
+    .how-to ol {
+        margin: 0;
+        padding-left: 22px;
+        color: var(--ink);
+    }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+    .app {
+        padding: 10px 10px 32px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .game {
+        padding: 10px;
+    }
+
+    .hud-stat {
+        min-width: 96px;
+    }
+
+    .seeds {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 700px) {
+    .rotate-hint {
+        display: block;
+    }
+}
